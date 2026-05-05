@@ -1,50 +1,80 @@
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Website Panda</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    body {
+      background: linear-gradient(135deg, #82cc2e, #27ae60);
+      min-height: 100vh;
+      color: white;
+    }
+
+    #home, #karya, #about, #contact {
+      background: linear-gradient(135deg, #27ae60, #145a32);
+      padding: 30px;
+      border-radius: 15px;
+      transition: all 0.5s ease;
+    }
+
+    .nav {
+      background: linear-gradient(90deg, #2f841e, #145a32) !important;
+    }
+
+    .nav-link:hover {
+      background-color: rgba(255,255,255,0.2);
+      border-radius: 10px;
+    }
+
+    .card {
+      color: black;
+    }
+  </style>
+</head>
+
+<body>
 
 <!-- 🔹 NAVBAR -->
-<ul class="nav justify-content-center bg-primary p-2">
+<ul class="nav justify-content-center p-2">
   <li class="nav-item">
-    <a class="nav-link text-white" href="#" onclick="showSection('home')">Home</a>
+    <a class="nav-link text-white" href="#" onclick="showSection('home'); return false;">Home</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link text-white" href="#" onclick="showSection('karya')">Hasil Karya</a>
+    <a class="nav-link text-white" href="#" onclick="showSection('karya'); return false;">Hasil Karya</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link text-white" href="#" onclick="showSection('about')">About</a>
+    <a class="nav-link text-white" href="#" onclick="showSection('about'); return false;">About</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link text-white" href="#" onclick="showSection('contact')">Contact</a>
+    <a class="nav-link text-white" href="#" onclick="showSection('contact'); return false;">Contact</a>
   </li>
 </ul>
 
 <!-- 🔹 HOME -->
 <div id="home" class="container mt-5">
-
   <div class="row align-items-center">
-    
-    <!-- 🔹 FOTO PROFIL -->
+
     <div class="col-md-4 text-center">
-      <img src="c:\Users\ok\Pictures\a.jpg"
-           class="rounded-circle img-fluid"
-           alt="Foto Profil"
-           width="250">
+      <img src="a.jpg" class="rounded-circle img-fluid" width="250">
     </div>
 
-    <!-- 🔹 NAMA & DESKRIPSI -->
     <div class="col-md-8">
       <h2>Panda</h2>
-      <p>Saya seorang programer.</p>
+      <p>Saya seorang programmer.</p>
     </div>
 
   </div>
 
-  <!-- 🔹 TEKS DI BAWAH -->
-  <div class="mt-5"> 
+  <div class="mt-5">
     <p>
-      Ini adalsah bagian teks tambahan di bawah profil. Bisa diisi dengan cerita,
-      pengalaman, atau penjelasan lebih panjang tentang diri Anda.
+      Ini adalah bagian teks tambahan di bawah profil.
+      Bisa diisi dengan cerita, pengalaman, atau penjelasan diri.
     </p>
   </div>
-
 </div>
 
 <!-- 🔹 HASIL KARYA -->
@@ -58,27 +88,24 @@
 
   <h1 class="mb-4">About Me</h1>
 
-  <!-- 🔹 PROFIL SINGKAT -->
   <div class="card p-4 shadow">
     <h3>Panda</h3>
-    <p><b>Sekolah:</b> SMK (Isi sesuai kamu)</p>
+    <p><b>Sekolah:</b> SMK</p>
     <p><b>Jurusan:</b> Rekayasa Perangkat Lunak (RPL)</p>
     <p><b>Kelas:</b> XII</p>
   </div>
 
-  <!-- 🔹 DESKRIPSI -->
   <div class="mt-4">
     <p>
       Saya adalah seorang siswa yang memiliki minat besar di bidang teknologi,
       khususnya dalam pembuatan website dan desain digital.
     </p>
     <p>
-      Saat ini saya sedang mempelajari HTML, CSS, JavaScript, dan framework seperti Bootstrap
-      untuk mengembangkan kemampuan dalam membuat tampilan website yang menarik dan responsif.
+      Saya sedang belajar HTML, CSS, JavaScript, dan Bootstrap
+      untuk membuat website yang modern dan responsif.
     </p>
   </div>
 
-  <!-- 🔹 SKILL -->
   <div class="mt-5">
     <h3>Skill</h3>
 
@@ -103,18 +130,15 @@
     </div>
   </div>
 
-  <!-- 🔹 HOBI -->
   <div class="mt-5">
     <h3>Hobi</h3>
-    <p>Coding, desain grafis, editing, dan eksplor teknologi baru.</p>
+    <p>Coding, desain grafis, dan eksplor teknologi baru.</p>
   </div>
 
-  <!-- 🔹 TUJUAN -->
   <div class="mt-5 mb-5">
     <h3>Tujuan</h3>
     <p>
-      Saya ingin menjadi seorang programmer profesional dan mampu membuat
-      aplikasi atau website yang bermanfaat bagi banyak orang.
+      Ingin menjadi programmer profesional dan membuat aplikasi bermanfaat.
     </p>
   </div>
 
@@ -123,45 +147,21 @@
 <!-- 🔹 CONTACT -->
 <div id="contact" class="container text-center mt-5" style="display:none;">
   <h1>Contact</h1>
-  <p>Kontak saya</p>
+  <p>Email: panda@email.com</p>
 </div>
 
 <!-- 🔹 JAVASCRIPT -->
 <script>
   function showSection(sectionId) {
-    // sembunyikan semua
-    document.getElementById("home").style.display = "none";
-    document.getElementById("karya").style.display = "none";
-    document.getElementById("about").style.display = "none";
-    document.getElementById("contact").style.display = "none";
+    const sections = ["home", "karya", "about", "contact"];
 
-    // tampilkan yang dipilih
+    sections.forEach(id => {
+      document.getElementById(id).style.display = "none";
+    });
+
     document.getElementById(sectionId).style.display = "block";
   }
 </script>
 
-
-<style>
-  body {
-    background: linear-gradient(135deg, #82cc2e, #27ae60);
-    min-height: 100vh;
-    color: white;
-  }
-
-  /* Background tiap section */
-  #home, #karya, #about, #contact {
-    background: linear-gradient(135deg, #27ae60, #145a32);
-    padding: 30px;
-    border-radius: 15px;
-  }
-
-  /* Navbar biar lebih keren */
-  .nav {
-    background: linear-gradient(90deg, #2f841e, #145a32) !important;
-  }
-
-  /* Biar teks tetap enak dibaca */
-  p, h1, h2 {
-    color: white;
-  }
-</style>
+</body>
+</html>
