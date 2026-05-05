@@ -14,9 +14,11 @@
       color: white;
     }
 
-    /* 🔹 HILANGKAN KOTAK */
     #home, #karya, #about, #contact {
+      background: linear-gradient(135deg, #27ae60, #145a32);
       padding: 30px;
+      border-radius: 15px;
+      transition: all 0.5s ease;
     }
 
     .nav {
@@ -28,13 +30,8 @@
       border-radius: 10px;
     }
 
-    /* tabel biar tetap terlihat */
-    table {
-      background: rgba(0,0,0,0.2);
-    }
-
-    th {
-      width: 30%;
+    .card {
+      color: black;
     }
   </style>
 </head>
@@ -59,72 +56,83 @@
 
 <!-- 🔹 HOME -->
 <div id="home" class="container mt-5">
-
   <div class="row align-items-center">
+
     <div class="col-md-4 text-center">
-      <img src="a.jpg" class="rounded-circle img-fluid" width="200">
+      <img src="a.jpg" class="rounded-circle img-fluid" width="250">
     </div>
 
     <div class="col-md-8">
       <h2>Panda</h2>
       <p>Saya seorang programmer.</p>
     </div>
+
   </div>
 
-  <!-- 🔹 PERKENALAN -->
-  <div class="mt-5 text-center">
-    <h3>Halo 👋</h3>
-    <p>
-      Selamat datang di website saya. Saya adalah seorang siswa yang sedang belajar
-      dunia programming dan desain website.
-    </p>
-  </div>
+<!-- 🔹 PERKENALAN -->
+<div class="mt-5 text-center">
+  <h3>Halo 👋</h3>
+  <p>
+    Selamat datang di website saya. Saya adalah seorang siswa yang sedang belajar
+    dunia programming dan desain website.
+  </p>
+</div>
 
-  <!-- 🔹 SKILL SINGKAT -->
-  <div class="mt-5">
-    <h3 class="text-center">Skill Utama</h3>
+<!-- 🔹 SKILL SINGKAT -->
+<div class="mt-5">
+  <h3 class="text-center">Skill Utama</h3>
 
-    <div class="row text-center mt-4">
-      <div class="col-md-3"><h5>HTML</h5><p>Struktur Website</p></div>
-      <div class="col-md-3"><h5>CSS</h5><p>Desain & Tampilan</p></div>
-      <div class="col-md-3"><h5>Bootstrap</h5><p>Responsive</p></div>
-      <div class="col-md-3"><h5>JavaScript</h5><p>Interaksi</p></div>
+  <div class="row text-center mt-4">
+    <div class="col-md-3">
+      <h5>HTML</h5>
+      <p>Struktur Website</p>
+    </div>
+    <div class="col-md-3">
+      <h5>CSS</h5>
+      <p>Desain & Tampilan</p>
+    </div>
+    <div class="col-md-3">
+      <h5>Bootstrap</h5>
+      <p>Responsive Design</p>
+    </div>
+    <div class="col-md-3">
+      <h5>JavaScript</h5>
+      <p>Interaksi Website</p>
     </div>
   </div>
+</div>
 
-  <!-- 🔹 KARYA PREVIEW -->
-  <div class="mt-5">
-    <h3 class="text-center">Karya Terbaru</h3>
+<!-- 🔹 HASIL KARYA PREVIEW -->
+<div class="mt-5">
+  <h3 class="text-center">Karya Terbaru</h3>
 
-    <div class="row mt-4 text-center">
-      <div class="col-md-4">
-        <div class="p-3 bg-dark rounded">
-          <h5>Website Portfolio</h5>
-          <p>Website pribadi</p>
-        </div>
+  <div class="row mt-4 text-center">
+    <div class="col-md-4">
+      <div class="p-3 bg-dark rounded">
+        <h5>Website Portfolio</h5>
+        <p>Website pribadi sederhana</p>
       </div>
+    </div>
 
-      <div class="col-md-4">
-        <div class="p-3 bg-dark rounded">
-          <h5>Design Pamflet</h5>
-          <p>CorelDraw</p>
-        </div>
+    <div class="col-md-4">
+      <div class="p-3 bg-dark rounded">
+        <h5>Design Pamflet</h5>
+        <p>Desain menggunakan CorelDraw</p>
       </div>
+    </div>
 
-      <div class="col-md-4">
-        <div class="p-3 bg-dark rounded">
-          <h5>Aplikasi JS</h5>
-          <p>Project latihan</p>
-        </div>
+    <div class="col-md-4">
+      <div class="p-3 bg-dark rounded">
+        <h5>Aplikasi Sederhana</h5>
+        <p>Project latihan JavaScript</p>
       </div>
     </div>
   </div>
+</div>
 
-  <!-- 🔹 MOTIVASI -->
-  <div class="mt-5 text-center">
-    <h4>"Terus belajar, karena skill hari ini menentukan masa depan."</h4>
-  </div>
-
+<!-- 🔹 MOTIVASI -->
+<div class="mt-5 text-center">
+  <h4>"Terus belajar, karena skill hari ini menentukan masa depan."</h4>
 </div>
 
 <!-- 🔹 HASIL KARYA -->
@@ -134,25 +142,91 @@
 </div>
 
 <!-- 🔹 ABOUT -->
+<!-- 🔹 ABOUT -->
 <div id="about" class="container mt-5" style="display:none;">
 
   <h1 class="text-center mb-4">About Me</h1>
 
+  <!-- 🔹 DATA DIRI (TABEL) -->
   <div class="table-responsive">
-    <table class="table table-bordered text-white">
+    <table class="table table-bordered table-striped text-white">
       <tbody>
-        <tr><th>Nama</th><td>Panda</td></tr>
-        <tr><th>Kelas</th><td>XII</td></tr>
-        <tr><th>Sekolah</th><td>SMK</td></tr>
-        <tr><th>Jurusan</th><td>RPL</td></tr>
-        <tr><th>Cita-cita</th><td>Programmer</td></tr>
+        <tr>
+          <th>Nama</th>
+          <td>Panda</td>
+        </tr>
+        <tr>
+          <th>Kelas</th>
+          <td>XII</td>
+        </tr>
+        <tr>
+          <th>Sekolah</th>
+          <td>SMK (Isi sesuai kamu)</td>
+        </tr>
+        <tr>
+          <th>Jurusan</th>
+          <td>Rekayasa Perangkat Lunak (RPL)</td>
+        </tr>
+        <tr>
+          <th>Alamat</th>
+          <td>(Opsional)</td>
+        </tr>
+        <tr>
+          <th>Cita-cita</th>
+          <td>Programmer Profesional</td>
+        </tr>
       </tbody>
     </table>
   </div>
 
+  <!-- 🔹 DESKRIPSI -->
   <div class="mt-4 text-center">
     <p>
-      Saya adalah siswa yang tertarik di bidang teknologi dan pembuatan website.
+      Saya adalah seorang siswa yang memiliki minat besar di bidang teknologi,
+      khususnya dalam pembuatan website dan desain digital.
+    </p>
+    <p>
+      Saat ini saya sedang belajar HTML, CSS, JavaScript, dan Bootstrap
+      untuk membuat website yang menarik dan responsif.
+    </p>
+  </div>
+
+  <!-- 🔹 SKILL -->
+  <div class="mt-5">
+    <h3 class="text-center">Skill</h3>
+
+    <p>HTML</p>
+    <div class="progress mb-3">
+      <div class="progress-bar bg-success" style="width: 90%;">90%</div>
+    </div>
+
+    <p>CSS</p>
+    <div class="progress mb-3">
+      <div class="progress-bar bg-success" style="width: 85%;">85%</div>
+    </div>
+
+    <p>Bootstrap</p>
+    <div class="progress mb-3">
+      <div class="progress-bar bg-success" style="width: 80%;">80%</div>
+    </div>
+
+    <p>JavaScript</p>
+    <div class="progress mb-3">
+      <div class="progress-bar bg-success" style="width: 60%;">60%</div>
+    </div>
+  </div>
+
+  <!-- 🔹 HOBI -->
+  <div class="mt-5 text-center">
+    <h3>Hobi</h3>
+    <p>Coding, desain grafis, editing, dan eksplor teknologi baru.</p>
+  </div>
+
+  <!-- 🔹 TUJUAN -->
+  <div class="mt-5 mb-5 text-center">
+    <h3>Tujuan</h3>
+    <p>
+      Ingin menjadi programmer profesional dan membuat aplikasi yang bermanfaat.
     </p>
   </div>
 
