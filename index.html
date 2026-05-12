@@ -2,196 +2,380 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Website Panda</title>
 
   <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
 
   <style>
-    body {
-      background: linear-gradient(135deg, #82cc2e, #27ae60);
+
+    /* 🔹 BACKGROUND WEBSITE */
+    body{
+      margin: 0;
+      padding: 0;
+
+      /* GANTI GAMBAR BACKGROUND DI SINI */
+      background-image: url('background.jpg');
+
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+
       min-height: 100vh;
       color: white;
+      font-family: Arial, Helvetica, sans-serif;
     }
 
-    #home, #karya, #about, #contact {
-      background: linear-gradient(135deg, #27ae60, #145a32);
-      padding: 30px;
-      border-radius: 15px;
-      transition: all 0.5s ease;
+    /* 🔹 EFEK GELAP DI BACKGROUND */
+    body::before{
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+
+      width: 100%;
+      height: 100%;
+
+      background: rgba(0,0,0,0.5);
+      z-index: -1;
     }
 
-    .nav {
-      background: linear-gradient(90deg, #2f841e, #145a32) !important;
+    /* 🔹 NAVBAR */
+    .navbar-custom{
+      background: rgba(0,0,0,0.4);
+      backdrop-filter: blur(5px);
     }
 
-    .nav-link:hover {
-      background-color: rgba(255,255,255,0.2);
+    .nav-link{
+      color: white !important;
+      transition: 0.3s;
+      padding: 10px 20px;
       border-radius: 10px;
     }
 
-    .card {
-      color: black;
+    .nav-link:hover{
+      background: rgba(255,255,255,0.2);
+      transform: scale(1.05);
     }
+
+    /* 🔹 SEMUA SECTION */
+    .section{
+      min-height: 80vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+
+      padding: 50px 20px;
+      text-align: center;
+    }
+
+    /* 🔹 FOTO PROFIL */
+    .profile-img{
+      width: 250px;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 5px solid white;
+      box-shadow: 0px 0px 20px rgba(255,255,255,0.4);
+    }
+
+    /* 🔹 ABOUT TABLE */
+    .table{
+      color: white;
+      max-width: 700px;
+    }
+
+    .table th,
+    .table td{
+      background: rgba(255,255,255,0.1) !important;
+      color: white !important;
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+
+    /* 🔹 PROGRESS BAR */
+    .progress{
+      height: 25px;
+      background: rgba(255,255,255,0.2);
+    }
+
+    .progress-bar{
+      font-weight: bold;
+    }
+
+    /* 🔹 CARD KARYA */
+    .karya-card{
+      background: rgba(255,255,255,0.1);
+      border-radius: 20px;
+      padding: 20px;
+      transition: 0.3s;
+      backdrop-filter: blur(4px);
+    }
+
+    .karya-card:hover{
+      transform: translateY(-5px);
+      background: rgba(255,255,255,0.2);
+    }
+
+    /* 🔹 RESPONSIVE */
+    @media(max-width:768px){
+
+      .profile-img{
+        width: 180px;
+        height: 180px;
+      }
+
+      h1{
+        font-size: 28px;
+      }
+
+      h2{
+        font-size: 24px;
+      }
+
+    }
+
   </style>
 </head>
 
 <body>
 
 <!-- 🔹 NAVBAR -->
-<ul class="nav justify-content-center p-2">
-  <li class="nav-item">
-    <a class="nav-link text-white" href="#" onclick="showSection('home'); return false;">Home</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link text-white" href="#" onclick="showSection('karya'); return false;">Hasil Karya</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link text-white" href="#" onclick="showSection('about'); return false;">About</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link text-white" href="#" onclick="showSection('contact'); return false;">Contact</a>
-  </li>
-</ul>
+<nav class="navbar navbar-expand-lg navbar-custom">
+  <div class="container">
+
+    <a class="navbar-brand text-white fw-bold" href="#">
+      Panda
+    </a>
+
+    <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse justify-content-end" id="menu">
+      <ul class="navbar-nav">
+
+        <li class="nav-item">
+          <a class="nav-link" href="#" onclick="showSection('home'); return false;">
+            Home
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="#" onclick="showSection('karya'); return false;">
+            Hasil Karya
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="#" onclick="showSection('about'); return false;">
+            About
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="#" onclick="showSection('contact'); return false;">
+            Contact
+          </a>
+        </li>
+
+      </ul>
+    </div>
+
+  </div>
+</nav>
 
 <!-- 🔹 HOME -->
-<div id="home" class="container mt-5">
-  <div class="row align-items-center">
+<section id="home" class="section">
 
-    <div class="col-md-4 text-center">
-      <img src="a.jpg" class="rounded-circle img-fluid" width="250">
-    </div>
+  <img src="a.jpg" class="profile-img mb-4">
 
-    <div class="col-md-8">
-      <h2>Panda</h2>
-      <p>Saya seorang programmer.</p>
-    </div>
+  <h1 class="fw-bold">Panda</h1>
 
-  </div>
+  <h4 class="mb-4">Saya seorang programmer</h4>
 
-  <div class="mt-5">
-    <p>
-      Ini adalah bagian teks tambahan di bawah profil.
-      Bisa diisi dengan cerita, pengalaman, atau penjelasan diri.
-    </p>
-  </div>
-</div>
+  <p style="max-width:700px;">
+    Ini adalah bagian teks tambahan di bawah profil.
+    Bisa diisi dengan cerita, pengalaman,
+    atau penjelasan tentang diri kamu.
+  </p>
+
+</section>
 
 <!-- 🔹 HASIL KARYA -->
-<div id="karya" class="container text-center mt-5" style="display:none;">
-  <h1>Hasil Karya</h1>
-  <p>Ini halaman karya</p>
-</div>
+<section id="karya" class="section" style="display:none;">
+
+  <h1 class="fw-bold mb-5">Hasil Karya</h1>
+
+  <div class="container">
+
+    <div class="row g-4">
+
+      <div class="col-md-4">
+        <div class="karya-card">
+          <h3>Website Portfolio</h3>
+          <p>Membuat website portfolio modern menggunakan HTML dan Bootstrap.</p>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="karya-card">
+          <h3>Design Poster</h3>
+          <p>Membuat desain poster menggunakan Photoshop dan CorelDraw.</p>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="karya-card">
+          <h3>Aplikasi Sederhana</h3>
+          <p>Membuat aplikasi sederhana menggunakan JavaScript.</p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
 
 <!-- 🔹 ABOUT -->
-<!-- 🔹 ABOUT -->
-<div id="about" class="container mt-5" style="display:none;">
+<section id="about" class="section" style="display:none;">
 
-  <h1 class="text-center mb-4">About Me</h1>
+  <h1 class="fw-bold mb-5">About Me</h1>
 
-  <!-- 🔹 DATA DIRI (TABEL) -->
-  <div class="table-responsive">
-    <table class="table table-bordered table-striped text-white">
+  <!-- 🔹 TABEL -->
+  <div class="table-responsive mb-5">
+
+    <table class="table table-bordered">
+
       <tbody>
+
         <tr>
           <th>Nama</th>
           <td>Panda</td>
         </tr>
+
         <tr>
           <th>Kelas</th>
           <td>XII</td>
         </tr>
+
         <tr>
           <th>Sekolah</th>
-          <td>SMK (Isi sesuai kamu)</td>
+          <td>SMK</td>
         </tr>
+
         <tr>
           <th>Jurusan</th>
-          <td>Rekayasa Perangkat Lunak (RPL)</td>
+          <td>RPL</td>
         </tr>
-        <tr>
-          <th>Alamat</th>
-          <td>(Opsional)</td>
-        </tr>
+
         <tr>
           <th>Cita-cita</th>
           <td>Programmer Profesional</td>
         </tr>
+
       </tbody>
+
     </table>
+
   </div>
 
   <!-- 🔹 DESKRIPSI -->
-  <div class="mt-4 text-center">
+  <div style="max-width:800px;">
+
     <p>
-      Saya adalah seorang siswa yang memiliki minat besar di bidang teknologi,
-      khususnya dalam pembuatan website dan desain digital.
+      Saya adalah seorang siswa yang memiliki minat
+      besar di bidang teknologi dan desain digital.
     </p>
+
     <p>
-      Saat ini saya sedang belajar HTML, CSS, JavaScript, dan Bootstrap
-      untuk membuat website yang menarik dan responsif.
+      Saat ini saya sedang belajar HTML, CSS,
+      JavaScript, dan Bootstrap untuk membuat
+      website modern dan responsif.
     </p>
+
   </div>
 
   <!-- 🔹 SKILL -->
-  <div class="mt-5">
-    <h3 class="text-center">Skill</h3>
+  <div class="mt-5" style="width:100%; max-width:700px;">
+
+    <h3 class="mb-4">Skill</h3>
 
     <p>HTML</p>
     <div class="progress mb-3">
-      <div class="progress-bar bg-success" style="width: 90%;">90%</div>
+      <div class="progress-bar bg-success" style="width:90%;">
+        90%
+      </div>
     </div>
 
     <p>CSS</p>
     <div class="progress mb-3">
-      <div class="progress-bar bg-success" style="width: 85%;">85%</div>
+      <div class="progress-bar bg-success" style="width:85%;">
+        85%
+      </div>
     </div>
 
     <p>Bootstrap</p>
     <div class="progress mb-3">
-      <div class="progress-bar bg-success" style="width: 80%;">80%</div>
+      <div class="progress-bar bg-success" style="width:80%;">
+        80%
+      </div>
     </div>
 
     <p>JavaScript</p>
     <div class="progress mb-3">
-      <div class="progress-bar bg-success" style="width: 60%;">60%</div>
+      <div class="progress-bar bg-success" style="width:60%;">
+        60%
+      </div>
     </div>
+
   </div>
 
-  <!-- 🔹 HOBI -->
-  <div class="mt-5 text-center">
-    <h3>Hobi</h3>
-    <p>Coding, desain grafis, editing, dan eksplor teknologi baru.</p>
-  </div>
-
-  <!-- 🔹 TUJUAN -->
-  <div class="mt-5 mb-5 text-center">
-    <h3>Tujuan</h3>
-    <p>
-      Ingin menjadi programmer profesional dan membuat aplikasi yang bermanfaat.
-    </p>
-  </div>
-
-</div>
+</section>
 
 <!-- 🔹 CONTACT -->
-<div id="contact" class="container text-center mt-5" style="display:none;">
-  <h1>Contact</h1>
-  <p>Email: panda@email.com</p>
-</div>
+<section id="contact" class="section" style="display:none;">
+
+  <h1 class="fw-bold mb-4">Contact</h1>
+
+  <h5>Email :</h5>
+  <p>panda@email.com</p>
+
+  <h5>Instagram :</h5>
+  <p>@panda</p>
+
+  <h5>WhatsApp :</h5>
+  <p>08xxxxxxxxxx</p>
+
+</section>
 
 <!-- 🔹 JAVASCRIPT -->
 <script>
-  function showSection(sectionId) {
-    const sections = ["home", "karya", "about", "contact"];
 
-    sections.forEach(id => {
+  function showSection(sectionId){
+
+    const sections = [
+      "home",
+      "karya",
+      "about",
+      "contact"
+    ];
+
+    sections.forEach(function(id){
       document.getElementById(id).style.display = "none";
     });
 
-    document.getElementById(sectionId).style.display = "block";
+    document.getElementById(sectionId).style.display = "flex";
+
   }
+
 </script>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>
