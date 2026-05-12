@@ -1,20 +1,20 @@
-<!DOCTYPE html> 
-<html lang="id"> 
-  <head> 
-    <meta charset="UTF-8"> 
-    <title>Website Panda</title>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Website Panda</title>
 
   <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
 
   <style>
 
-    /* 🔹 BACKGROUND WEBSITE */
+    /* 🔹 BODY */
     body{
       margin: 0;
       padding: 0;
 
-      /* GANTI GAMBAR BACKGROUND DI SINI */
       background-image: url('https://i.pinimg.com/1200x/be/d6/72/bed672bea3d2b1803fb0c67bd4056ac6.jpg');
 
       background-size: cover;
@@ -27,7 +27,7 @@
       font-family: Arial, Helvetica, sans-serif;
     }
 
-    /* 🔹 EFEK GELAP DI BACKGROUND */
+    /* 🔹 EFEK GELAP */
     body::before{
       content: "";
       position: fixed;
@@ -37,101 +37,160 @@
       width: 100%;
       height: 100%;
 
-      background: rgba(0,0,0,0.5);
+      background: rgba(0,0,0,0.55);
       z-index: -1;
     }
 
     /* 🔹 NAVBAR */
     .navbar-custom{
-      background: rgba(0,0,0,0.4);
+      background: rgba(0,0,0,0.35);
       backdrop-filter: blur(5px);
+      padding: 10px 0;
+    }
+
+    .navbar-brand{
+      font-size: 22px;
+    }
+
+    .navbar-nav{
+      display: flex;
+      flex-direction: row;
+      gap: 10px;
+      flex-wrap: wrap;
     }
 
     .nav-link{
       color: white !important;
       transition: 0.3s;
-      padding: 10px 20px;
       border-radius: 10px;
+      padding: 8px 15px;
     }
 
     .nav-link:hover{
       background: rgba(255,255,255,0.2);
-      transform: scale(1.05);
     }
 
-    /* 🔹 SEMUA SECTION */
+    /* 🔹 SECTION */
     .section{
-      min-height: 80vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
+      min-height: auto;
+      padding-top: 30px;
+      padding-bottom: 40px;
+      padding-left: 20px;
+      padding-right: 20px;
 
-      padding: 50px 20px;
       text-align: center;
     }
 
     /* 🔹 FOTO PROFIL */
     .profile-img{
-      width: 250px;
-      height: 250px;
+      width: 230px;
+      height: 230px;
       object-fit: cover;
       border-radius: 50%;
-      border: 5px solid white;
+      border: 4px solid white;
       box-shadow: 0px 0px 20px rgba(255,255,255,0.4);
     }
 
-    /* 🔹 ABOUT TABLE */
+    /* 🔹 TABEL ABOUT */
     .table{
       color: white;
       max-width: 700px;
+      margin: auto;
     }
 
     .table th,
     .table td{
-      background: rgba(255,255,255,0.1) !important;
+      background: rgba(255,255,255,0.08) !important;
       color: white !important;
       border: 1px solid rgba(255,255,255,0.2);
     }
 
-    /* 🔹 PROGRESS BAR */
+    /* 🔹 PROGRESS */
     .progress{
-      height: 25px;
+      height: 24px;
       background: rgba(255,255,255,0.2);
     }
 
-    .progress-bar{
-      font-weight: bold;
-    }
-
-    /* 🔹 CARD KARYA */
+    /* 🔹 CARD */
     .karya-card{
-      background: rgba(255,255,255,0.1);
-      border-radius: 20px;
-      padding: 20px;
+      background: rgba(255,255,255,0.08);
+      padding: 15px;
+      border-radius: 18px;
       transition: 0.3s;
       backdrop-filter: blur(4px);
+      height: 100%;
     }
 
     .karya-card:hover{
       transform: translateY(-5px);
-      background: rgba(255,255,255,0.2);
+      background: rgba(255,255,255,0.15);
     }
 
-    /* 🔹 RESPONSIVE */
+    /* 🔹 GAMBAR KARYA */
+    .karya-img{
+      width: 100%;
+      height: 350px;
+
+      object-fit: cover;
+
+      border-radius: 15px;
+      cursor: pointer;
+
+      transition: 0.3s;
+    }
+
+    .karya-img:hover{
+      transform: scale(1.02);
+    }
+
+    /* 🔹 MODAL IMAGE */
+    .modal-content{
+      background: transparent;
+      border: none;
+    }
+
+    .modal-img{
+      width: 100%;
+      border-radius: 15px;
+    }
+
+    /* 🔹 MOBILE */
     @media(max-width:768px){
 
+      .navbar-brand{
+        width: 100%;
+        text-align: center;
+        margin-bottom: 10px;
+      }
+
+      .navbar .container{
+        display: flex;
+        flex-direction: column;
+      }
+
+      .navbar-nav{
+        justify-content: center;
+      }
+
+      .section{
+        padding-top: 20px;
+      }
+
       .profile-img{
-        width: 180px;
-        height: 180px;
+        width: 170px;
+        height: 170px;
+      }
+
+      .karya-img{
+        height: 280px;
       }
 
       h1{
         font-size: 28px;
       }
 
-      h2{
-        font-size: 24px;
+      h3{
+        font-size: 22px;
       }
 
     }
@@ -142,48 +201,45 @@
 <body>
 
 <!-- 🔹 NAVBAR -->
-<nav class="navbar navbar-expand-lg navbar-custom">
+<nav class="navbar navbar-custom">
+
   <div class="container">
 
     <a class="navbar-brand text-white fw-bold" href="#">
       Jhow Khou Why Website
     </a>
 
-    <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+    <!-- MENU LANGSUNG MUNCUL -->
+    <ul class="navbar-nav">
 
-    <div class="collapse navbar-collapse justify-content-end" id="menu">
-      <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="#" onclick="showSection('home'); return false;">
+          Home
+        </a>
+      </li>
 
-        <li class="nav-item">
-          <a class="nav-link" href="#" onclick="showSection('home'); return false;">
-            Home
-          </a>
-        </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#" onclick="showSection('karya'); return false;">
+          Hasil Karya
+        </a>
+      </li>
 
-        <li class="nav-item">
-          <a class="nav-link" href="#" onclick="showSection('karya'); return false;">
-            Hasil Karya
-          </a>
-        </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#" onclick="showSection('about'); return false;">
+          About
+        </a>
+      </li>
 
-        <li class="nav-item">
-          <a class="nav-link" href="#" onclick="showSection('about'); return false;">
-            About
-          </a>
-        </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#" onclick="showSection('contact'); return false;">
+          Contact
+        </a>
+      </li>
 
-        <li class="nav-item">
-          <a class="nav-link" href="#" onclick="showSection('contact'); return false;">
-            Contact
-          </a>
-        </li>
-
-      </ul>
-    </div>
+    </ul>
 
   </div>
+
 </nav>
 
 <!-- 🔹 HOME -->
@@ -195,7 +251,7 @@
 
   <h4 class="mb-4">Siswa Kelas XI</h4>
 
-  <p style="max-width:700px;">
+  <p style="max-width:700px; margin:auto;">
     Ini adalah bagian teks tambahan di bawah profil.
     Bisa diisi dengan cerita, pengalaman,
     atau penjelasan tentang diri kamu.
@@ -212,28 +268,68 @@
 
     <div class="row g-4">
 
+      <!-- KARYA 1 -->
       <div class="col-md-4">
+
         <div class="karya-card">
+
           <h3>Poster Design Satu</h3>
-              <img src="https://i.pinimg.com/1200x/c0/f8/c1/c0f8c10b0779b6034c5274557cda114a.jpg" class="img-fluid rounded mb-3">
-          <p>Alasan Mengapa Pedagang Kecil Susah Menaikkan Harga Dagangannya.</p>
+
+          <img
+            src="https://i.pinimg.com/1200x/c0/f8/c1/c0f8c10b0779b6034c5274557cda114a.jpg"
+            class="karya-img mb-3"
+            onclick="openImage(this.src)"
+          >
+
+          <p>
+            Alasan Mengapa Pedagang Kecil
+            Susah Menaikkan Harga Dagangannya.
+          </p>
+
         </div>
+
       </div>
 
+      <!-- KARYA 2 -->
       <div class="col-md-4">
+
         <div class="karya-card">
+
           <h3>Design Poster Dua</h3>
-         <img src="https://i.pinimg.com/736x/47/0d/64/470d6409981d078716ead2881b6566f9.jpg" class="img-fluid rounded mb-3">
-          <p>Hidup Tanpa Deskriminasi.</p>
+
+          <img
+            src="https://i.pinimg.com/736x/47/0d/64/470d6409981d078716ead2881b6566f9.jpg"
+            class="karya-img mb-3"
+            onclick="openImage(this.src)"
+          >
+
+          <p>
+            Hidup Tanpa Deskriminasi.
+          </p>
+
         </div>
+
       </div>
 
+      <!-- KARYA 3 -->
       <div class="col-md-4">
+
         <div class="karya-card">
+
           <h3>Design Poster Tiga</h3>
-          <img src="https://i.pinimg.com/736x/d6/d5/bd/d6d5bdcff1df64905a8b41a2aab1bcce.jpg" class="img-fluid rounded mb-3">
-          <p>Kebahagiaan Dunia Hanya Sementara.</p>
+
+          <img
+            src="https://i.pinimg.com/736x/d6/d5/bd/d6d5bdcff1df64905a8b41a2aab1bcce.jpg"
+            class="karya-img mb-3"
+            onclick="openImage(this.src)"
+          >
+
+          <p>
+            Kebahagiaan Dunia Hanya Sementara.
+          </p>
+
         </div>
+
       </div>
 
     </div>
@@ -247,7 +343,6 @@
 
   <h1 class="fw-bold mb-5">About Me</h1>
 
-  <!-- 🔹 TABEL -->
   <div class="table-responsive mb-5">
 
     <table class="table table-bordered">
@@ -256,12 +351,12 @@
 
         <tr>
           <th>Nama</th>
-          <td>Panda</td>
+          <td>Jhow Khou Why</td>
         </tr>
 
         <tr>
           <th>Kelas</th>
-          <td>XII</td>
+          <td>XI</td>
         </tr>
 
         <tr>
@@ -274,19 +369,13 @@
           <td>RPL</td>
         </tr>
 
-        <tr>
-          <th>Cita-cita</th>
-          <td>Programmer Profesional</td>
-        </tr>
-
       </tbody>
 
     </table>
 
   </div>
 
-  <!-- 🔹 DESKRIPSI -->
-  <div style="max-width:800px;">
+  <div style="max-width:800px; margin:auto;">
 
     <p>
       Saya adalah seorang siswa yang memiliki minat
@@ -298,41 +387,6 @@
       JavaScript, dan Bootstrap untuk membuat
       website modern dan responsif.
     </p>
-
-  </div>
-
-  <!-- 🔹 SKILL -->
-  <div class="mt-5" style="width:100%; max-width:700px;">
-
-    <h3 class="mb-4">Skill</h3>
-
-    <p>HTML</p>
-    <div class="progress mb-3">
-      <div class="progress-bar bg-success" style="width:90%;">
-        90%
-      </div>
-    </div>
-
-    <p>CSS</p>
-    <div class="progress mb-3">
-      <div class="progress-bar bg-success" style="width:85%;">
-        85%
-      </div>
-    </div>
-
-    <p>Bootstrap</p>
-    <div class="progress mb-3">
-      <div class="progress-bar bg-success" style="width:80%;">
-        80%
-      </div>
-    </div>
-
-    <p>JavaScript</p>
-    <div class="progress mb-3">
-      <div class="progress-bar bg-success" style="width:60%;">
-        60%
-      </div>
-    </div>
 
   </div>
 
@@ -354,6 +408,21 @@
 
 </section>
 
+<!-- 🔹 MODAL GAMBAR -->
+<div class="modal fade" id="imageModal" tabindex="-1">
+
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+
+    <div class="modal-content">
+
+      <img id="modalImage" class="modal-img">
+
+    </div>
+
+  </div>
+
+</div>
+
 <!-- 🔹 JAVASCRIPT -->
 <script>
 
@@ -370,7 +439,20 @@
       document.getElementById(id).style.display = "none";
     });
 
-    document.getElementById(sectionId).style.display = "flex";
+    document.getElementById(sectionId).style.display = "block";
+
+  }
+
+  // 🔹 OPEN FULL IMAGE
+  function openImage(src){
+
+    document.getElementById("modalImage").src = src;
+
+    let modal = new bootstrap.Modal(
+      document.getElementById('imageModal')
+    );
+
+    modal.show();
 
   }
 
