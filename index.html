@@ -3,17 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Website Panda</title>
+  <title>Jhow Khou Why Website</title>
 
   <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
 
   <style>
 
-    /* 🔹 BODY */
-    body{
+    *{
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
+    }
+
+    html{
+      scroll-behavior: smooth;
+    }
+
+    body{
+      font-family: Arial, Helvetica, sans-serif;
 
       background-image: url('https://i.pinimg.com/1200x/be/d6/72/bed672bea3d2b1803fb0c67bd4056ac6.jpg');
 
@@ -22,34 +30,40 @@
       background-repeat: no-repeat;
       background-attachment: fixed;
 
-      min-height: 100vh;
       color: white;
-      font-family: Arial, Helvetica, sans-serif;
+
+      min-height: 100vh;
     }
 
-    /* 🔹 EFEK GELAP */
+    /* 🔹 OVERLAY */
     body::before{
       content: "";
       position: fixed;
-      top: 0;
-      left: 0;
+      inset: 0;
 
-      width: 100%;
-      height: 100%;
+      background: rgba(0,0,0,0.65);
 
-      background: rgba(0,0,0,0.55);
       z-index: -1;
     }
 
     /* 🔹 NAVBAR */
     .navbar-custom{
+      position: sticky;
+      top: 0;
+
+      z-index: 999;
+
       background: rgba(0,0,0,0.35);
-      backdrop-filter: blur(5px);
-      padding: 10px 0;
+
+      backdrop-filter: blur(8px);
+
+      border-bottom: 1px solid rgba(255,255,255,0.1);
     }
 
     .navbar-brand{
-      font-size: 22px;
+      font-size: 28px;
+      font-weight: bold;
+      color: white !important;
     }
 
     .navbar-nav{
@@ -61,79 +75,193 @@
 
     .nav-link{
       color: white !important;
-      transition: 0.3s;
+
+      padding: 8px 18px;
+
       border-radius: 10px;
-      padding: 8px 15px;
+
+      transition: 0.3s;
     }
 
     .nav-link:hover{
-      background: rgba(255,255,255,0.2);
+      background: rgba(255,255,255,0.12);
     }
 
     /* 🔹 SECTION */
     .section{
-      min-height: auto;
-      padding-top: 30px;
-      padding-bottom: 40px;
-      padding-left: 20px;
-      padding-right: 20px;
-
-      text-align: center;
+      padding: 60px 20px;
     }
 
-    /* 🔹 FOTO PROFIL */
-    .profile-img{
-      width: 230px;
-      height: 230px;
-      object-fit: cover;
-      border-radius: 50%;
-      border: 4px solid white;
-      box-shadow: 0px 0px 20px rgba(255,255,255,0.4);
-    }
+    /* 🔹 BOX */
+    .content-box{
+      max-width: 1000px;
 
-    /* 🔹 TABEL ABOUT */
-    .table{
-      color: white;
-      max-width: 700px;
       margin: auto;
+
+      background: rgba(255,255,255,0.05);
+
+      border: 1px solid rgba(255,255,255,0.1);
+
+      backdrop-filter: blur(8px);
+
+      border-radius: 25px;
+
+      padding: 45px;
+
+      box-shadow: 0px 0px 30px rgba(0,0,0,0.35);
+    }
+
+    /* 🔹 FOTO */
+    .profile-img{
+      width: 220px;
+      height: 220px;
+
+      object-fit: cover;
+
+      border-radius: 50%;
+
+      border: 4px solid rgba(255,255,255,0.7);
+
+      box-shadow: 0px 0px 25px rgba(255,255,255,0.25);
+    }
+
+    /* 🔹 TEXT */
+    .main-title{
+      font-size: 58px;
+      font-weight: bold;
+
+      margin-top: 25px;
+    }
+
+    .sub-title{
+      font-size: 28px;
+
+      opacity: 0.9;
+
+      margin-bottom: 35px;
+    }
+
+    .desc{
+      max-width: 850px;
+
+      margin: auto;
+
+      font-size: 18px;
+
+      line-height: 2.1;
+
+      color: rgba(255,255,255,0.92);
+
+      text-align: justify;
+    }
+
+    /* 🔹 ABOUT */
+    .about-title{
+      font-size: 45px;
+      font-weight: bold;
+
+      margin-bottom: 45px;
+    }
+
+    .about-text{
+      font-size: 17px;
+
+      line-height: 2.2;
+
+      text-align: justify;
+
+      color: rgba(255,255,255,0.92);
+    }
+
+    /* 🔹 TABLE */
+    .table{
+      overflow: hidden;
+      border-radius: 20px;
+      margin-bottom: 40px;
     }
 
     .table th,
     .table td{
       background: rgba(255,255,255,0.08) !important;
+
       color: white !important;
-      border: 1px solid rgba(255,255,255,0.2);
-    }
 
-    /* 🔹 PROGRESS */
-    .progress{
-      height: 24px;
-      background: rgba(255,255,255,0.2);
-    }
+      border: 1px solid rgba(255,255,255,0.12);
 
-    /* 🔹 CARD */
-    .karya-card{
-      background: rgba(255,255,255,0.08);
       padding: 15px;
-      border-radius: 18px;
-      transition: 0.3s;
-      backdrop-filter: blur(4px);
+    }
+
+    /* 🔹 SKILL */
+    .skill-box{
+      margin-top: 60px;
+    }
+
+    .skill-box h3{
+      margin-bottom: 30px;
+      font-weight: bold;
+    }
+
+    .progress{
+      height: 25px;
+
+      border-radius: 30px;
+
+      overflow: hidden;
+
+      background: rgba(255,255,255,0.15);
+    }
+
+    .progress-bar{
+      font-weight: bold;
+    }
+
+    /* 🔹 KARYA */
+    .karya-title{
+      font-size: 45px;
+      font-weight: bold;
+
+      margin-bottom: 50px;
+    }
+
+    .karya-card{
+      background: rgba(255,255,255,0.06);
+
+      border-radius: 20px;
+
+      padding: 20px;
+
       height: 100%;
+
+      backdrop-filter: blur(5px);
+
+      transition: 0.3s;
     }
 
     .karya-card:hover{
       transform: translateY(-5px);
-      background: rgba(255,255,255,0.15);
+
+      background: rgba(255,255,255,0.1);
     }
 
-    /* 🔹 GAMBAR KARYA */
+    .karya-card h3{
+      margin-bottom: 20px;
+      font-size: 24px;
+    }
+
+    .karya-card p{
+      line-height: 1.8;
+      color: rgba(255,255,255,0.88);
+    }
+
     .karya-img{
       width: 100%;
+
       height: 350px;
 
       object-fit: cover;
 
       border-radius: 15px;
+
       cursor: pointer;
 
       transition: 0.3s;
@@ -143,7 +271,29 @@
       transform: scale(1.02);
     }
 
-    /* 🔹 MODAL IMAGE */
+    /* 🔹 CONTACT */
+    .contact-title{
+      font-size: 45px;
+      font-weight: bold;
+
+      margin-bottom: 40px;
+    }
+
+    .contact-box h5{
+      margin-top: 30px;
+
+      font-size: 24px;
+
+      font-weight: bold;
+    }
+
+    .contact-box p{
+      font-size: 18px;
+
+      color: rgba(255,255,255,0.9);
+    }
+
+    /* 🔹 MODAL */
     .modal-content{
       background: transparent;
       border: none;
@@ -151,21 +301,22 @@
 
     .modal-img{
       width: 100%;
-      border-radius: 15px;
+      border-radius: 20px;
     }
 
     /* 🔹 MOBILE */
     @media(max-width:768px){
 
-      .navbar-brand{
-        width: 100%;
-        text-align: center;
-        margin-bottom: 10px;
+      .navbar .container{
+        flex-direction: column;
       }
 
-      .navbar .container{
-        display: flex;
-        flex-direction: column;
+      .navbar-brand{
+        margin-bottom: 12px;
+
+        text-align: center;
+
+        font-size: 24px;
       }
 
       .navbar-nav{
@@ -173,29 +324,49 @@
       }
 
       .section{
-        padding-top: 20px;
+        padding: 30px 15px;
+      }
+
+      .content-box{
+        padding: 25px;
       }
 
       .profile-img{
-        width: 170px;
-        height: 170px;
+        width: 160px;
+        height: 160px;
+      }
+
+      .main-title{
+        font-size: 38px;
+      }
+
+      .sub-title{
+        font-size: 22px;
+      }
+
+      .desc{
+        font-size: 15px;
+        line-height: 2;
+      }
+
+      .about-title,
+      .karya-title,
+      .contact-title{
+        font-size: 32px;
+      }
+
+      .about-text{
+        font-size: 15px;
       }
 
       .karya-img{
         height: 280px;
       }
 
-      h1{
-        font-size: 28px;
-      }
-
-      h3{
-        font-size: 22px;
-      }
-
     }
 
   </style>
+
 </head>
 
 <body>
@@ -205,11 +376,10 @@
 
   <div class="container">
 
-    <a class="navbar-brand text-white fw-bold" href="#">
+    <a class="navbar-brand" href="#">
       Jhow Khou Why Website
     </a>
 
-    <!-- MENU LANGSUNG MUNCUL -->
     <ul class="navbar-nav">
 
       <li class="nav-item">
@@ -245,33 +415,46 @@
 <!-- 🔹 HOME -->
 <section id="home" class="section">
 
-  <img src="https://i.pinimg.com/736x/31/6b/e9/316be99945107f4f42338115e51efdf0.jpg" class="profile-img mb-4">
+  <div class="content-box text-center">
 
-  <h1 class="fw-bold">Jhow Khou Why</h1>
+    <img src="https://i.pinimg.com/736x/31/6b/e9/316be99945107f4f42338115e51efdf0.jpg"
+    class="profile-img">
 
-  <h4 class="mb-4">Siswa Kelas XI</h4>
+    <h1 class="main-title">
+      Jhow Khou Why
+    </h1>
 
-  <p style="max-width:700px; margin:auto;">
-    Halo, perkenalkan nama saya Jhow Khou Why. Saya adalah seorang siswa kelas XI yang memiliki minat besar dalam dunia teknologi, kreativitas digital, dan pengembangan diri. Saat ini saya sedang menempuh pendidikan di jenjang sekolah menengah atas sambil terus belajar berbagai hal baru yang dapat membantu meningkatkan kemampuan serta pengalaman saya di masa depan. Saya dikenal sebagai pribadi yang cukup aktif, memiliki rasa ingin tahu yang tinggi, dan senang mencoba tantangan baru, terutama dalam bidang yang berhubungan dengan komputer, desain, internet, dan media sosial.
+    <h3 class="sub-title">
+      Siswa Kelas XI
+    </h3>
 
-Sejak duduk di bangku sekolah, saya mulai tertarik mempelajari berbagai hal tentang teknologi digital, mulai dari editing, pembuatan konten, desain sederhana, hingga memahami dasar-dasar pemrograman dan pengembangan website. Ketertarikan tersebut membuat saya semakin semangat untuk terus belajar secara mandiri melalui internet, video pembelajaran, maupun praktik langsung. Bagi saya, perkembangan teknologi saat ini memberikan banyak peluang bagi anak muda untuk berkarya, belajar, dan bahkan membangun masa depan sejak usia muda.
+    <p class="desc">
+      Halo, perkenalkan nama saya Jhow Khou Why.
+      Saya adalah seorang siswa kelas XI yang memiliki
+      minat besar dalam dunia teknologi, kreativitas digital,
+      dan pengembangan website modern.
 
-Selain tertarik di bidang teknologi, saya juga senang bekerja sama dengan orang lain, berdiskusi, dan berbagi ide kreatif. Saya percaya bahwa kerja keras, konsistensi, dan kemauan untuk belajar adalah kunci penting untuk mencapai tujuan. Oleh karena itu, saya selalu berusaha untuk terus berkembang menjadi pribadi yang lebih baik, baik dalam bidang akademik maupun non-akademik. Saya juga memiliki keinginan untuk bisa memanfaatkan kemampuan yang saya pelajari agar dapat berguna bagi banyak orang di masa mendatang.
+      Saya senang mempelajari hal baru,
+      mengeksplor desain visual,
+      serta membuat karya digital yang kreatif dan menarik.
+      Dunia teknologi membuat saya terus tertarik
+      untuk berkembang dan mencoba berbagai hal baru,
+      mulai dari desain, editing,
+      hingga pengembangan website modern.
+    </p>
 
-Di waktu luang, saya sering menghabiskan waktu untuk mencari inspirasi konten, mempelajari tren digital terbaru, mencoba hal-hal baru di komputer, serta mengeksplorasi berbagai platform media sosial. Saya termasuk orang yang senang belajar dari pengalaman dan tidak mudah menyerah ketika menghadapi kesulitan. Menurut saya, setiap proses memiliki pelajaran yang berharga dan setiap tantangan bisa menjadi kesempatan untuk berkembang.
-
-Ke depannya, saya berharap dapat terus meningkatkan kemampuan, memperluas wawasan, dan meraih berbagai pencapaian yang membanggakan. Saya ingin menjadi seseorang yang tidak hanya sukses untuk diri sendiri, tetapi juga mampu memberikan manfaat dan inspirasi bagi orang lain. Dengan semangat belajar dan tekad yang kuat, saya percaya bahwa setiap impian dapat dicapai selama kita mau berusaha dan terus berkembang menjadi versi terbaik dari diri kita sendiri.
-
-  </p>
+  </div>
 
 </section>
 
 <!-- 🔹 HASIL KARYA -->
 <section id="karya" class="section" style="display:none;">
 
-  <h1 class="fw-bold mb-5">Hasil Karya</h1>
+  <div class="content-box">
 
-  <div class="container">
+    <h1 class="karya-title text-center">
+      Hasil Karya
+    </h1>
 
     <div class="row g-4">
 
@@ -311,7 +494,7 @@ Ke depannya, saya berharap dapat terus meningkatkan kemampuan, memperluas wawasa
           >
 
           <p>
-            Hidup Tanpa Deskriminasi.
+            Hidup Tanpa Diskriminasi.
           </p>
 
         </div>
@@ -348,52 +531,149 @@ Ke depannya, saya berharap dapat terus meningkatkan kemampuan, memperluas wawasa
 <!-- 🔹 ABOUT -->
 <section id="about" class="section" style="display:none;">
 
-  <h1 class="fw-bold mb-5">About Me</h1>
+  <div class="content-box">
 
-  <div class="table-responsive mb-5">
+    <h1 class="about-title text-center">
+      About Me
+    </h1>
 
-    <table class="table table-bordered">
+    <!-- 🔹 TABEL -->
+    <div class="table-responsive">
 
-      <tbody>
+      <table class="table table-bordered">
 
-        <tr>
-          <th>Nama</th>
-          <td>Jhow Khou Why</td>
-        </tr>
+        <tbody>
 
-        <tr>
-          <th>Kelas</th>
-          <td>XI</td>
-        </tr>
+          <tr>
+            <th>Nama</th>
+            <td>Jhow Khou Why</td>
+          </tr>
 
-        <tr>
-          <th>Sekolah</th>
-          <td>SMK</td>
-        </tr>
+          <tr>
+            <th>Kelas</th>
+            <td>XI</td>
+          </tr>
 
-        <tr>
-          <th>Jurusan</th>
-          <td>RPL</td>
-        </tr>
+          <tr>
+            <th>Sekolah</th>
+            <td>SMK</td>
+          </tr>
 
-      </tbody>
+          <tr>
+            <th>Jurusan</th>
+            <td>RPL</td>
+          </tr>
 
-    </table>
+          <tr>
+            <th>Cita-cita</th>
+            <td>Programmer & Digital Creator</td>
+          </tr>
 
-  </div>
+        </tbody>
 
-  <div style="max-width:800px; margin:auto;">
+      </table>
 
-    <p>
-      Saya adalah seorang siswa yang memiliki minat
-      besar di bidang teknologi dan desain digital.
-    </p>
+    </div>
 
-    <p>
-      Saat ini saya sedang belajar HTML, CSS,
-      JavaScript, dan Bootstrap untuk membuat
-      website modern dan responsif.
-    </p>
+    <!-- 🔹 DESKRIPSI -->
+    <div class="about-text">
+
+      <p>
+        Saya adalah seorang siswa yang memiliki
+        ketertarikan besar di bidang teknologi,
+        desain visual, dan pengembangan website modern.
+        Dunia digital menjadi salah satu hal yang membuat
+        saya tertarik untuk terus belajar dan berkembang.
+      </p>
+
+      <p>
+        Sejak mulai mengenal komputer dan internet,
+        saya mulai tertarik mempelajari editing,
+        desain poster, website development,
+        hingga berbagai hal yang berhubungan
+        dengan kreativitas digital.
+      </p>
+
+      <p>
+        Saat ini saya sedang mempelajari HTML,
+        CSS, JavaScript, Bootstrap,
+        serta desain grafis untuk meningkatkan
+        kemampuan saya dalam bidang programming
+        dan multimedia.
+      </p>
+
+      <p>
+        Saya percaya bahwa konsistensi,
+        rasa ingin tahu,
+        dan kemauan belajar adalah kunci
+        untuk berkembang menjadi pribadi
+        yang lebih baik di masa depan.
+      </p>
+
+    </div>
+
+    <!-- 🔹 SKILL -->
+    <div class="skill-box">
+
+      <h3>Skill</h3>
+
+      <p>HTML</p>
+      <div class="progress mb-4">
+        <div class="progress-bar bg-success" style="width:90%;">
+          90%
+        </div>
+      </div>
+
+      <p>CSS</p>
+      <div class="progress mb-4">
+        <div class="progress-bar bg-success" style="width:85%;">
+          85%
+        </div>
+      </div>
+
+      <p>Bootstrap</p>
+      <div class="progress mb-4">
+        <div class="progress-bar bg-success" style="width:80%;">
+          80%
+        </div>
+      </div>
+
+      <p>JavaScript</p>
+      <div class="progress mb-4">
+        <div class="progress-bar bg-success" style="width:60%;">
+          60%
+        </div>
+      </div>
+
+      <p>Photoshop</p>
+      <div class="progress mb-4">
+        <div class="progress-bar bg-success" style="width:88%;">
+          88%
+        </div>
+      </div>
+
+      <p>CorelDraw</p>
+      <div class="progress mb-4">
+        <div class="progress-bar bg-success" style="width:85%;">
+          85%
+        </div>
+      </div>
+
+    </div>
+
+    <!-- 🔹 MOTTO -->
+    <div class="about-text mt-5 text-center">
+
+      <h3 class="mb-4">
+        Motto
+      </h3>
+
+      <p>
+        "Terus belajar, terus berkembang,
+        dan terus berkarya."
+      </p>
+
+    </div>
 
   </div>
 
@@ -402,20 +682,30 @@ Ke depannya, saya berharap dapat terus meningkatkan kemampuan, memperluas wawasa
 <!-- 🔹 CONTACT -->
 <section id="contact" class="section" style="display:none;">
 
-  <h1 class="fw-bold mb-4">Contact</h1>
+  <div class="content-box text-center">
 
-  <h5>Email :</h5>
-  <p>panda@email.com</p>
+    <h1 class="contact-title">
+      Contact
+    </h1>
 
-  <h5>Instagram :</h5>
-  <p>@panda</p>
+    <div class="contact-box">
 
-  <h5>WhatsApp :</h5>
-  <p>08xxxxxxxxxx</p>
+      <h5>Email</h5>
+      <p>panda@email.com</p>
+
+      <h5>Instagram</h5>
+      <p>@panda</p>
+
+      <h5>WhatsApp</h5>
+      <p>08xxxxxxxxxx</p>
+
+    </div>
+
+  </div>
 
 </section>
 
-<!-- 🔹 MODAL GAMBAR -->
+<!-- 🔹 MODAL IMAGE -->
 <div class="modal fade" id="imageModal" tabindex="-1">
 
   <div class="modal-dialog modal-dialog-centered modal-lg">
@@ -450,7 +740,7 @@ Ke depannya, saya berharap dapat terus meningkatkan kemampuan, memperluas wawasa
 
   }
 
-  // 🔹 OPEN FULL IMAGE
+  // 🔹 OPEN IMAGE
   function openImage(src){
 
     document.getElementById("modalImage").src = src;
